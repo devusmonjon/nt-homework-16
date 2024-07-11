@@ -17,9 +17,10 @@ const Page = (props: Props) => {
     const [data, setData] = useState<IUser[]>([
         {
             id: new Date().getTime(),
-            firstname: "Usmonjon",
-            lastname: "Hasanov",
-            email: "usmonjonhasanov777@gmail.com",
+            firstname: "Bae",
+            lastname: "Suzy",
+            img: "https://i.pinimg.com/originals/20/ec/40/20ec40bf9be44e3d9d92886465df3791.jpg",
+            email: "suzy@bzs.com",
             password: "123456",
         },
     ]);
@@ -96,6 +97,7 @@ const Page = (props: Props) => {
                     id: new Date().getTime(),
                     firstname: firstName,
                     lastname: lastName,
+                    img: "https://i.pravatar.cc/3000",
                     email: registerEmail,
                     password: registerPassword,
                 };

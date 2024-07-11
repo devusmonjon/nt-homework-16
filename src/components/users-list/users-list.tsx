@@ -14,13 +14,15 @@ const UsersList = ({ data }: IUsersList) => {
                         key={user.id}
                         className="flex flex-col items-center p-10 w-[250px] m-2 backdrop-blur-2xl shadow-2xl"
                     >
-                        <div className="w-[80px] h-[80px] rounded-full border-[2px] border-[#fff] border-solid bg-[#303030] overflow-hidden">
+                        <div className="w-[100px] h-[100px] rounded-full border-[2px] border-[#fff] border-solid bg-[#303030] overflow-hidden">
                             <Image
-                                src={"https://i.pravatar.cc/300"}
-                                alt=""
+                                src={`${
+                                    user.img ?? "https://i.pravatar.cc/300"
+                                }`}
+                                alt="avatar"
                                 width={80}
                                 height={80}
-                                className="rounded-full object-cover w-full h-full"
+                                className="rounded-full object-cover w-full h-full scale-125"
                             />
                         </div>
                         <h1 className="text-[#fff] text-[20px] font-bold mt-2">

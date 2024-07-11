@@ -7,7 +7,23 @@ const config: Config = {
         "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     ],
     theme: {
-        extend: {},
+        extend: {
+            animation(utils) {
+                return {
+                    show: "show .5s linear forwards",
+                };
+            },
+            keyframes: {
+                show: {
+                    from: {
+                        backdropFilter: "0",
+                    },
+                    to: {
+                        backdropFilter: "16px",
+                    },
+                },
+            },
+        },
     },
     plugins: [],
 };

@@ -20,6 +20,12 @@ const Page = (props: Props) => {
     const [registerPasswordConfirm, setRegisterPasswordConfirm] =
         useState<string>("");
 
+    const [modalOpen, setModalOpen] = useState<boolean>(false);
+
+    const toggleModal = () => {
+        setModalOpen(!modalOpen);
+    };
+
     const togglePassShow = () => {
         setPassShow(!passShow);
     };
@@ -65,7 +71,7 @@ const Page = (props: Props) => {
                     className="object-cover"
                 />
             </div>
-            <form className="w-[400px] backdrop-blur-lg p-10 flex flex-col gap-5">
+            <form className="w-[400px] backdrop-blur-2xl p-10 flex flex-col gap-5">
                 <div className="border-solid border-[2px] border-[#fff]">
                     <input
                         type="email"
@@ -110,6 +116,7 @@ const Page = (props: Props) => {
                         Login <IoEnter fontSize={20} />
                     </button>
                     <button
+                        onClick={toggleModal}
                         type="button"
                         className="flex justify-center items-center gap-[10px] w-full p-2 border-solid border-[2px] border-[#fff] bg-[#fff] text-[#000] hover:bg-transparent hover:text-[#fff] focus:bg-transparent focus:text-[#fff] transition outline-none"
                     >
@@ -117,9 +124,16 @@ const Page = (props: Props) => {
                     </button>
                 </div>
             </form>
-            <div className="fixed top-0 left-0 w-full h-full z-50 flex justify-center items-center">
-                <div className="-z-10 absolute top-0 left-0 w-full h-full backdrop-blur-lg"></div>
-                <form className="w-[400px] backdrop-blur-lg p-10 flex flex-col gap-5">
+            <div
+                className={`fixed top-0 left-0 w-full h-full z-50 ${
+                    modalOpen ? "flex" : "hidden"
+                } justify-center items-center modal`}
+            >
+                <div
+                    className="-z-10 absolute top-0 left-0 w-full h-full backdrop-blur-2xl animate-show"
+                    onClick={toggleModal}
+                ></div>
+                <form className="w-[400px] backdrop-blur-3xl p-10 flex flex-col gap-5">
                     <div className="border-solid border-[2px] border-[#fff]">
                         <input
                             type="email"
@@ -183,7 +197,7 @@ const Page = (props: Props) => {
 
                     <div className="flex justify-between gap-5">
                         <button
-                            type="button"
+                            type="submit"
                             className="flex justify-center items-center gap-[10px] w-full p-2 border-solid border-[2px] border-[#fff] bg-[#fff] text-[#000] hover:bg-transparent hover:text-[#fff] focus:bg-transparent focus:text-[#fff] transition outline-none"
                         >
                             Register <IoIosAddCircle fontSize={20} />

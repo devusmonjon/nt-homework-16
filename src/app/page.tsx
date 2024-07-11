@@ -14,7 +14,15 @@ import { UsersList } from "@/components";
 type Props = {};
 
 const Page = (props: Props) => {
-    const [data, setData] = useState<IUser[]>([]);
+    const [data, setData] = useState<IUser[]>([
+        {
+            id: new Date().getTime(),
+            firstname: "Usmonjon",
+            lastname: "Hasanov",
+            email: "usmonjonhasanov777@gmail.com",
+            password: "123456",
+        },
+    ]);
 
     const [passShow, setPassShow] = useState<boolean>(false);
     const [loginEmail, setLoginEmail] = useState<string>("");

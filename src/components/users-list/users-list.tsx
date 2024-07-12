@@ -2,7 +2,9 @@ import { IUsersList } from "@/interfaces";
 import Image from "next/image";
 import React from "react";
 
-const UsersList = ({ data }: IUsersList) => {
+import { IoClose } from "react-icons/io5";
+
+const UsersList = ({ data, deleteUser }: IUsersList) => {
     return (
         <>
             <h1 className="text-[#fff] text-[35px] font-bold mb-10 text-center flex-wrap">
@@ -12,8 +14,15 @@ const UsersList = ({ data }: IUsersList) => {
                 {data.map((user) => (
                     <div
                         key={user.id}
-                        className="flex flex-col items-center p-10 w-[250px] m-2 backdrop-blur-2xl shadow-2xl"
+                        className="flex flex-col items-center p-10 w-[250px] m-2 backdrop-blur-2xl shadow-2xl relative"
                     >
+                        <button
+                            onClick={() => deleteUser(user.id)}
+                            className="absolute top-5 right-5"
+                            title="Close"
+                        >
+                            <IoClose size={30} />
+                        </button>
                         <div className="w-[100px] h-[100px] rounded-full border-[2px] border-[#fff] border-solid bg-[#303030] overflow-hidden">
                             <Image
                                 src={`${

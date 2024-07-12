@@ -122,6 +122,10 @@ const Page = (props: Props) => {
         }
     };
 
+    const deleteUser = (id: number) => {
+        setData(data.filter((user) => user.id !== id));
+    };
+
     return (
         <main className="w-full h-screen flex justify-center items-center flex-col gap-10">
             <div className="w-full h-screen fixed top-0 left-0 -z-10">
@@ -186,7 +190,7 @@ const Page = (props: Props) => {
                 </div>
             </form>
             <div className="w-full max-w-[1200px] px-8 mx-auto">
-                <UsersList data={data} />
+                <UsersList deleteUser={deleteUser} data={data} />
             </div>
             <div
                 className={`fixed top-0 left-0 w-full h-full z-50 ${
